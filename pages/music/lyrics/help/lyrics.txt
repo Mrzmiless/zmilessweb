@@ -1,8 +1,0 @@
-coloca aqui as letras da música
-linha por linha
-exatamente como queres que apareçam no site
-
-podes deixar linhas em branco
-entre estrofes
-
-e o site vai mostrar tudo tal como está aqui
