@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../base.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="icon" href="../../favicon.jpg" type="image/jpeg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Saturn World</title>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="mobile-nav" id="mobileNav">
+        <a href="../../index.html">home</a>
+        <a href="../music/music.html">music</a>
+        <a href="about.html">about</a>
+        <a href="../shows/shows.html">shows (soon)</a>
+        <a href="../linktree/linktree.html">linktree</a>
+    </div>
+
+    <nav class="topbar">
+        <a class="topbar-left" href="../../index.html">saturn world</a>
+        <div class="topbar-links">
+            <a href="../music/music.html">music</a>
+            <a href="about.html">about</a>
+            <a href="../shows/shows.html">shows (soon)</a>
+            <a href="../linktree/linktree.html">linktree</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <main class="page-content">
+        <div class="about-layout">
+            <div class="about-text">
+                <p class="about-label">about</p>
+                <h1 class="page-title">zmiless</h1>
+                <p class="page-meta">artist · musician · saturn world</p>
+                <div class="divider"></div>
+                <p>Write your story here. Where you're from, how you started making music, what Saturn World means to you.</p>
+                <p>Keep it honest. Keep it yours.</p>
+                <p>The music came first — the words came after, when there was no other way to carry what needed carrying.</p>
+            </div>
+            <div class="about-photo-wrap">
+                <div class="about-photo-placeholder"></div>
+                <!-- <img src="../../images/photo.jpg" alt="zmiless" class="about-photo"> -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="bottombar">
+        <span>© 2026 zmiless. All rights reserved. — Built by zmiless himself</span>
+        <div class="bottombar-links"><a href="#">shhh...</a></div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileNav').classList.toggle('open');
+            document.getElementById('menuToggle').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,579 @@
+@font-face {
+    font-family: 'Playfair Display Italic';
+    src: url('./fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ── Cursores personalizados ── */
+body, * {
+    cursor: url('./cursors/eye-normal.cur'), auto;
+}
+
+a, button, .hero-btn {
+    cursor: url('./cursors/eye-link.cur'), pointer;
+}
+
+p, h1, h2, h3, span, li {
+    cursor: url('./cursors/eye-text.cur'), text;
+}
+
+/* ── Epilepsy Warning Overlay ── */
+.epilepsy-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease;
+}
+
+.epilepsy-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.epilepsy-box {
+    max-width: 560px;
+    width: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 24px;
+}
+
+.epilepsy-label {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: lowercase;
+    color: rgba(240, 240, 240, 0.35);
+    margin: 0;
+}
+
+.epilepsy-title {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 42px;
+    color: #f0f0f0;
+    margin: 0;
+    letter-spacing: 0.04em;
+}
+
+.epilepsy-text {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(240, 240, 240, 0.55);
+    margin: 0;
+    letter-spacing: 0.03em;
+}
+
+.epilepsy-btn {
+    margin-top: 12px;
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
+    color: #f0f0f0;
+    background: transparent;
+    border: 1px solid rgba(240, 240, 240, 0.4);
+    padding: 14px 36px;
+    cursor: url('./cursors/eye-link.cur'), pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.epilepsy-btn:hover {
+    background: rgba(240, 240, 240, 0.07);
+    border-color: rgba(240, 240, 240, 0.85);
+}
+
+/* linha decorativa acima do título */
+.epilepsy-box::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba(240,240,240,0.3));
+    margin-bottom: 8px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* ── Background ── */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./images/wallmotion.gif');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ── Top Bar ── */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px;
+
+    /* subtle gradient so text stays readable */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%);
+}
+
+.topbar-left {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: rgba(240, 240, 240, 0.75);
+    letter-spacing: 0.12em;
+}
+
+.topbar-links {
+    display: flex;
+    gap: 36px;
+}
+
+.topbar-links a {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(240, 240, 240, 0.6);
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+}
+
+.topbar-links a:hover {
+    color: rgba(240, 240, 240, 1);
+}
+
+/* ── Hero (título + botões centrados) ── */
+.hero {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+}
+
+/* ── Título ── */
+.main-title {
+    color: #f0f0f0;
+    text-align: center;
+    font-weight: 100;
+    font-size: 80px;
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    margin: 0;
+    letter-spacing: 0.04em;
+    position: relative;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.6);
+
+    animation: glitch-main 6s infinite;
+}
+
+/* camada vermelha (antes) */
+.main-title::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #f0f0f0;
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 100;
+    font-size: 80px;
+    letter-spacing: 0.04em;
+    text-align: center;
+
+    clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+    transform: translate(-3px, 0);
+    color: rgba(255, 80, 80, 0.85);
+    animation: glitch-before 6s infinite;
+}
+
+/* camada azul (depois) */
+.main-title::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #f0f0f0;
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 100;
+    font-size: 80px;
+    letter-spacing: 0.04em;
+    text-align: center;
+
+    clip-path: polygon(0 55%, 100% 55%, 100% 75%, 0 75%);
+    transform: translate(3px, 0);
+    color: rgba(80, 180, 255, 0.85);
+    animation: glitch-after 6s infinite;
+}
+
+@keyframes glitch-main {
+    0%, 88%, 100%  { transform: none; }
+    89%            { transform: skewX(-1deg) translate(2px, 0); }
+    90%            { transform: skewX(1deg)  translate(-2px, 0); }
+    91%            { transform: none; }
+    94%            { transform: translate(3px, 1px); }
+    95%            { transform: translate(-3px, -1px); }
+    96%            { transform: none; }
+}
+
+@keyframes glitch-before {
+    0%, 88%, 100%  { clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%); transform: translate(-3px, 0); opacity: 0; }
+    89%            { clip-path: polygon(0 12%, 100% 12%, 100% 32%, 0 32%); transform: translate(-4px, -2px); opacity: 1; }
+    90%            { clip-path: polygon(0 50%, 100% 50%, 100% 60%, 0 60%); transform: translate(-2px, 1px);  opacity: 1; }
+    91%            { clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%); transform: translate(-3px, 0);    opacity: 0; }
+    94%            { clip-path: polygon(0 5%,  100% 5%,  100% 20%, 0 20%); transform: translate(-5px, 0);   opacity: 1; }
+    95%            { opacity: 0; }
+}
+
+@keyframes glitch-after {
+    0%, 88%, 100%  { clip-path: polygon(0 55%, 100% 55%, 100% 75%, 0 75%); transform: translate(3px, 0); opacity: 0; }
+    89%            { clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%); transform: translate(4px, 2px);  opacity: 1; }
+    90%            { clip-path: polygon(0 30%, 100% 30%, 100% 45%, 0 45%); transform: translate(2px, -1px); opacity: 1; }
+    91%            { clip-path: polygon(0 55%, 100% 55%, 100% 75%, 0 75%); transform: translate(3px, 0);    opacity: 0; }
+    94%            { clip-path: polygon(0 70%, 100% 70%, 100% 90%, 0 90%); transform: translate(5px, 0);    opacity: 1; }
+    95%            { opacity: 0; }
+}
+
+/* ── Descrição principal ── */
+.main-description {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(240, 240, 240, 0.4);
+    letter-spacing: 0.15em;
+    text-align: center;
+    margin: -24px 0 0 0;
+}
+
+/* ── Socials Overlay ── */
+.socials-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.socials-overlay.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.socials-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.socials-label {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: rgba(240, 240, 240, 0.35);
+}
+
+.socials-icons {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.socials-icons a {
+    color: rgba(240, 240, 240, 0.6);
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.socials-icons a:hover {
+    color: #f0f0f0;
+    transform: translateY(-4px);
+}
+
+.socials-icons svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+
+.socials-icons span {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: inherit;
+}
+
+.socials-close {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: rgba(240, 240, 240, 0.35);
+    background: none;
+    border: none;
+    cursor: url('./cursors/eye-link.cur'), pointer;
+    transition: color 0.3s ease;
+    margin-top: 8px;
+}
+
+.socials-close:hover {
+    color: rgba(240, 240, 240, 0.8);
+}
+
+/* ── Botões ── */
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.hero-btn {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: lowercase;
+    color: #f0f0f0;
+    text-decoration: none;
+
+    /* quadrado / retângulo com borda branca */
+    border: 1px solid rgba(240, 240, 240, 0.55);
+    padding: 14px 28px;
+    background: transparent;
+
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: rgba(240, 240, 240, 0.1);
+    border-color: rgba(240, 240, 240, 0.9);
+    color: #fff;
+}
+
+/* ── Bottom Bar ── */
+.bottombar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%);
+}
+
+.bottombar span {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 12px;
+    color: rgba(240, 240, 240, 0.45);
+    letter-spacing: 0.1em;
+}
+
+.bottombar-links {
+    display: flex;
+    gap: 28px;
+}
+
+.bottombar-links a {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 12px;
+    color: rgba(240, 240, 240, 0.45);
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+}
+
+.bottombar-links a:hover {
+    color: rgba(240, 240, 240, 0.9);
+}
+
+/* ═══════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════ */
+
+/* ── Hamburger button ── */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    z-index: 1100;
+    position: relative;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: rgba(240,240,240,0.75);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ── Mobile nav drawer ── */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(8, 8, 8, 0.97);
+    backdrop-filter: blur(8px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.mobile-nav.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* keep hamburger button above overlay */
+.topbar {
+    z-index: 1050;
+}
+
+.mobile-nav a {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 200;
+    font-size: 32px;
+    color: rgba(240,240,240,0.7);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a:active { color: #f0f0f0; }
+
+@media (max-width: 768px) {
+
+    .topbar { padding: 20px 24px; }
+    .topbar-links { display: none; }
+    .menu-toggle { display: flex; }
+
+    .main-title,
+    .main-title::before,
+    .main-title::after { font-size: 46px; }
+
+    .main-description {
+        font-size: 12px;
+        padding: 0 24px;
+    }
+
+    .hero { gap: 28px; }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .hero-btn {
+        width: 200px;
+        text-align: center;
+    }
+
+    .bottombar {
+        padding: 14px 24px;
+        justify-content: center;
+    }
+
+    .bottombar-links { display: none; }
+
+    .bottombar span {
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .mobile-nav { display: flex; }
+
+    .socials-icons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 48px;
+    }
+
+    .epilepsy-title { font-size: 28px; }
+    .epilepsy-text { font-size: 13px; }
+}

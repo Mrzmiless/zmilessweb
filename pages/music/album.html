@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../base.css">
+    <link rel="stylesheet" href="album.css">
+    <link rel="icon" href="../../favicon.jpg" type="image/jpeg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album — Saturn World</title>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="mobile-nav" id="mobileNav">
+        <a href="../../index.html">home</a>
+        <a href="music.html">music</a>
+        <a href="../about/about.html">about</a>
+        <a href="../shows/shows.html">shows (soon)</a>
+        <a href="../linktree/linktree.html">linktree</a>
+    </div>
+
+    <nav class="topbar">
+        <a class="topbar-left" href="../../index.html">saturn world</a>
+        <div class="topbar-links">
+            <a href="music.html">music</a>
+            <a href="../about/about.html">about</a>
+            <a href="../shows/shows.html">shows (soon)</a>
+            <a href="../linktree/linktree.html">linktree</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <main class="page-content">
+        <div class="album-layout">
+            <div class="album-cover-wrap">
+                <div class="album-cover-placeholder"></div>
+                <!-- <img src="../../images/covers/saturn-world.jpg" alt="Saturn World" class="album-cover-img"> -->
+            </div>
+            <div class="album-details">
+                <p class="album-label">album</p>
+                <h1 class="page-title">Saturn World</h1>
+                <p class="page-meta">zmiless · 2026</p>
+                <div class="divider"></div>
+                <p>Saturn World is a debut album about grief, distance, and the weight of loving someone who has already left. Recorded between 2024 and 2025, the record blends shoegaze textures with raw lo-fi production — walls of guitar, buried vocals, and melodies that feel like they're dissolving.</p>
+                <p>Every song is a room in the same house. You can wander through them in order or get lost.</p>
+                <div class="divider"></div>
+                <div class="album-tracklist">
+                    <p class="tracklist-label">tracklist</p>
+                    <ol class="tracks">
+                        <li>Song Title One</li>
+                        <li>Song Title Two</li>
+                        <li>Song Title Three</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bottombar">
+        <span>© 2026 zmiless. All rights reserved. — Built by zmiless himself</span>
+        <div class="bottombar-links"><a href="#">shhh...</a></div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileNav').classList.toggle('open');
+            document.getElementById('menuToggle').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

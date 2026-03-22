@@ -1,0 +1,44 @@
+.about-layout {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-label {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: rgba(240,240,240,0.3);
+    text-transform: lowercase;
+    margin: 0 0 12px 0;
+}
+
+.about-photo-wrap {
+    flex-shrink: 0;
+    width: 280px;
+    position: sticky;
+    top: 120px;
+}
+
+.about-photo {
+    width: 100%;
+    display: block;
+    filter: grayscale(30%);
+    transition: filter 0.5s ease;
+}
+
+.about-photo:hover {
+    filter: grayscale(0%);
+}
+
+.about-photo-placeholder {
+    width: 280px;
+    height: 380px;
+    background: rgba(240,240,240,0.04);
+    border: 1px solid rgba(240,240,240,0.1);
+}

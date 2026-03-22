@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.jpg" type="image/jpeg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saturn World | zmiless</title>
+</head>
+<body>
+
+    <!-- Epilepsy Warning -->
+    <div class="epilepsy-overlay" id="epilepsyOverlay">
+        <div class="epilepsy-box">
+            <p class="epilepsy-label">aviso / warning</p>
+            <h2 class="epilepsy-title">Photosensitivity Warning</h2>
+            <p class="epilepsy-text">
+                This website contains flashing lights and stroboscopic visual effects that may affect people with photosensitive epilepsy or other photosensitive conditions.
+            </p>
+            <p class="epilepsy-text">
+                If you or anyone in your household has a history of epilepsy or seizures, please consult a doctor before continuing.
+            </p>
+            <button class="epilepsy-btn" onclick="closeWarning()">I understand — enter</button>
+        </div>
+    </div>
+
+    <!-- Socials Overlay -->
+    <div class="socials-overlay" id="socialsOverlay" onclick="closeSocials(event)">
+        <div class="socials-box">
+            <p class="socials-label">find me</p>
+            <div class="socials-icons">
+                <a href="https://youtube.com/@zmiless" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+                    <span>youtube</span>
+                </a>
+                <a href="https://instagram.com/zmiless" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    <span>instagram</span>
+                </a>
+                <a href="https://open.spotify.com/artist/zmiless" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                    <span>spotify</span>
+                </a>
+                <a href="https://soundcloud.com/zmiless" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M1.175 12.225c-.07 0-.134.007-.198.02v.704l.198-.01c.33 0 .6-.26.6-.592a.598.598 0 0 0-.6-.122zm-.899 1.34L0 13.635v.618l.276.056v-.744zm2.18-1.574c-.12 0-.234.02-.345.058v2.02c.111.04.225.06.345.06.52 0 .942-.42.942-.942v-.252c0-.522-.422-.944-.942-.944zm19.694-3.276c-.058 0-.116.004-.174.012-.636-3.55-3.73-6.253-7.46-6.253-1.16 0-2.26.272-3.22.748-.358.18-.453.362-.456.522v12.34c.003.18.144.333.326.346h10.984c1.477 0 2.676-1.197 2.676-2.676v-2.37c0-1.478-1.198-2.67-2.676-2.67z"/></svg>
+                    <span>soundcloud</span>
+                </a>
+            </div>
+            <button class="socials-close" onclick="closeSocials()">— close —</button>
+        </div>
+    </div>
+
+    <div class="background"></div>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="pages/music/music.html" onclick="closeMenu()">music</a>
+        <a href="pages/about/about.html" onclick="closeMenu()">about</a>
+        <a href="pages/shows/shows.html" onclick="closeMenu()">shows (soon)</a>
+        <a href="pages/linktree/linktree.html" onclick="closeMenu()">linktree</a>
+    </div>
+
+    <nav class="topbar">
+        <div class="topbar-left">saturn world</div>
+        <div class="topbar-links">
+            <a href="pages/music/music.html">music</a>
+            <a href="pages/about/about.html">about</a>
+            <a href="pages/shows/shows.html">shows (soon)</a>
+            <a href="pages/linktree/linktree.html">linktree</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <main class="hero">
+        <h1 class="main-title" data-text="Saturn World">Saturn World</h1>
+        <p class="main-description">all those days for nothing, love killed me, it killed me</p>
+        <div class="hero-buttons">
+            <a href="pages/music/lyrics.html" class="hero-btn">lyrics</a>
+            <a href="pages/music/album.html" class="hero-btn">album</a>
+            <button class="hero-btn" onclick="openSocials()">socials</button>
+        </div>
+    </main>
+
+    <footer class="bottombar">
+        <span>© 2026 zmiless. All rights reserved. — Built by zmiless himself</span>
+        <div class="bottombar-links">
+            <a href="#">shhh...</a>
+        </div>
+    </footer>
+
+    <script>
+        function closeWarning() {
+            document.getElementById('epilepsyOverlay').classList.add('hidden');
+        }
+        function openSocials() {
+            document.getElementById('socialsOverlay').classList.add('visible');
+        }
+        function closeSocials(e) {
+            if (!e || e.target === document.getElementById('socialsOverlay')) {
+                document.getElementById('socialsOverlay').classList.remove('visible');
+            }
+        }
+        function toggleMenu() {
+            const nav = document.getElementById('mobileNav');
+            const btn = document.getElementById('menuToggle');
+            nav.classList.toggle('open');
+            btn.classList.toggle('open');
+        }
+        function closeMenu() {
+            document.getElementById('mobileNav').classList.remove('open');
+            document.getElementById('menuToggle').classList.remove('open');
+        }
+    </script>
+</body>
+</html>

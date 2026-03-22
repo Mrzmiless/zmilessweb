@@ -1,0 +1,301 @@
+/* ================================================
+   base.css — Saturn World (páginas internas)
+   Coloca este ficheiro em cada subpasta de página
+   ================================================ */
+
+@font-face {
+    font-family: 'Playfair Display Italic';
+    src: url('../../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+* { box-sizing: border-box; }
+
+body, * { cursor: url('../../cursors/eye-normal.cur'), auto; }
+a, button { cursor: url('../../cursors/eye-link.cur'), pointer; }
+
+body {
+    font-family: 'Playfair Display Italic', serif;
+    background-color: #0e0e0e;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+/* ── Background fixo ── */
+.background {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('../../images/wall.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+.background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+/* ── Top Bar ── */
+.topbar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 100%);
+}
+.topbar-left {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: rgba(240,240,240,0.75);
+    letter-spacing: 0.12em;
+    text-decoration: none;
+}
+.topbar-links { display: flex; gap: 36px; }
+.topbar-links a {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(240,240,240,0.6);
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+}
+.topbar-links a:hover { color: #f0f0f0; }
+
+/* ── Bottom Bar ── */
+.bottombar {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+}
+.bottombar span {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 12px;
+    color: rgba(240,240,240,0.4);
+    letter-spacing: 0.1em;
+}
+.bottombar-links { display: flex; gap: 28px; }
+.bottombar-links a {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 12px;
+    color: rgba(240,240,240,0.4);
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+}
+.bottombar-links a:hover { color: rgba(240,240,240,0.9); }
+
+/* ── Área de conteúdo ── */
+.page-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 130px 48px 100px;
+    min-height: 100vh;
+}
+
+/* ── Título da página ── */
+.page-title {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 100;
+    font-size: 52px;
+    color: #f0f0f0;
+    letter-spacing: 0.04em;
+    margin: 0 0 12px 0;
+}
+
+/* ── Subtítulo / meta ── */
+.page-meta {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: rgba(240,240,240,0.35);
+    margin: 0 0 56px 0;
+    text-transform: lowercase;
+}
+
+/* ── Separador ── */
+.divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(240,240,240,0.08);
+    margin: 40px 0;
+}
+
+/* ── Parágrafo ── */
+.page-content p {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 2;
+    color: rgba(240,240,240,0.55);
+    letter-spacing: 0.03em;
+    margin: 0 0 20px 0;
+}
+
+/* ── Botão genérico ── */
+.btn {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
+    color: #f0f0f0;
+    text-decoration: none;
+    border: 1px solid rgba(240,240,240,0.4);
+    padding: 10px 24px;
+    background: transparent;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    display: inline-block;
+}
+.btn:hover {
+    background: rgba(240,240,240,0.07);
+    border-color: rgba(240,240,240,0.8);
+}
+
+/* ═══════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════ */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    z-index: 1100;
+    position: relative;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: rgba(240,240,240,0.75);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(8, 8, 8, 0.97);
+    backdrop-filter: blur(8px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.mobile-nav.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* keep hamburger button above overlay */
+.topbar {
+    z-index: 1050;
+}
+
+.mobile-nav a {
+    font-family: 'Playfair Display Italic', serif;
+    font-style: italic;
+    font-weight: 200;
+    font-size: 32px;
+    color: rgba(240,240,240,0.7);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a:active { color: #f0f0f0; }
+
+@media (max-width: 768px) {
+
+    .topbar { padding: 20px 24px; }
+    .topbar-links { display: none; }
+    .menu-toggle { display: flex; }
+
+    .bottombar {
+        padding: 14px 24px;
+        justify-content: center;
+    }
+    .bottombar-links { display: none; }
+    .bottombar span { font-size: 10px; text-align: center; }
+
+    .mobile-nav { display: flex; }
+
+    .page-content { padding: 100px 24px 90px; }
+
+    .page-title { font-size: 36px; }
+
+    /* music page */
+    .music-item {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .music-cover { width: 100%; height: auto; aspect-ratio: 1; }
+    .cover-placeholder { width: 100%; height: 0; padding-bottom: 100%; }
+    .music-title { font-size: 24px; }
+
+    /* album page */
+    .album-layout {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .album-cover-wrap {
+        width: 100%;
+        position: static;
+    }
+    .album-cover-placeholder { width: 100%; height: 0; padding-bottom: 100%; }
+
+    /* about page */
+    .about-layout {
+        flex-direction: column-reverse;
+        gap: 32px;
+    }
+    .about-photo-wrap {
+        width: 100%;
+        position: static;
+    }
+    .about-photo-placeholder { width: 100%; height: 260px; }
+    .about-photo { width: 100%; }
+}
